@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e3541d55-76fd-4b1a-b392-0440630ca5f2": {
+      "ProjectGuid": "e3541d55-76fd-4b1a-b392-0440630ca5f2",
+      "DisplayName": "Cinema.Domain",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
