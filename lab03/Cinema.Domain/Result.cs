@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FluentValidation.Results;
 
 namespace Cinema.Domain;
 
@@ -7,6 +7,7 @@ public class Result
     private Result(bool isSuccess, string message, IEnumerable<Error> errors)
     {
         IsSuccess = isSuccess;
+        IsFailure = !isSuccess;
         Message = message;
         Errors = errors;
     }
@@ -19,13 +20,12 @@ public class Result
     public static Result Fail(string message)
         => new Result(false, message, Enumerable.Empty<Error>());
 
-    // TODO: Errors jakis problem pokazuje, tak jakby w ValidationResult nie było listy errorów
-    // public static Result Fail(ValidationResult validationResult)
-    //     => new Result(
-    //         false,
-    //         string.Join(", ", validationResult.Errors.Select(x => x.ErrorMessage)),
-    //         validationResult.Errors.Select(x => new Error(x.PropertyName, x.ErrorMessage))
-    //     );
+    public static Result Fail(ValidationResult validationResult)
+        => new Result(
+            false,
+            string.Join(", ", validationResult.Errors.Select(x => x.ErrorMessage)),
+            validationResult.Errors.Select(x => new Error(x.PropertyName, x.ErrorMessage))
+        );
 
     public static Result Ok()
         => new Result(false, "", Enumerable.Empty<Error>());

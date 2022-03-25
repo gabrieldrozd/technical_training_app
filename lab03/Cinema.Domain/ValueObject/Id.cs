@@ -6,8 +6,8 @@ public class Id<T> : IEquatable<Id<T>> where T : class
     {
         Value = value;
     }
-    
-    private Guid Value { get; }
+
+    public Guid Value { get; }
     
     public bool Equals(Id<T> other)
     {

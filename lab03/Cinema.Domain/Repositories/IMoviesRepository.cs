@@ -14,6 +14,4 @@ public interface IMoviesRepository
     Movie GetSeanceDetails(Id<Movie> movieId);
     List<Seance> GetSeancesByMovieId(Id<Movie> movieId);
     void Remove(Movie movie);
-    
-    // TODO: koniec na stronie 7 (strona 9 zrobiona, zaimplementowany interfejs IMoviesRepository)
 }
