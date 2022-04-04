@@ -19,8 +19,6 @@ public class UnitOfWork : IUnitOfWork
         _context.Dispose();
     }
     
-    //TODO koniec na 15 stronie w polowie
-
     public void Commit()
     {
         _context.SaveChanges();
