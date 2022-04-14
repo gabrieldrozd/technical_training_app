@@ -32,7 +32,5 @@ public class RegisterSeanceCommandHandler : ICommandHandler<RegisterSeanceComman
         _unitOfWork.Commit();
         
         return Result.Ok();
-        
-        // TODO: sam koniec 18 strony (1 linijka) i początek 19*
     }
 }
