@@ -1,0 +1,49 @@
+@model List<Cinema.Domain.DTOs.MovieDto>
+@{
+    ViewData["Title"] = "Filmy";
+}
+
+<h2>Filmy</h2>
+
+@if (@Model.Any())
+{
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nazma</th>
+                <th></th>
+                <th></th>
+                <th>
+                    <a class="btn btn-outline-success float-end" asp-action="Add">Dodaj nowy</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        <div class="d-inline-flex float-end">
+                            <a class="text-warning btn btn-link" asp-action="Index" asp-controller="Seances" asp-route-id="@item.Id.Value">
+                                <i class="fas fa-pen-square">Zobacz seanse</i>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-link text-secondary float-end" asp-action="Edit" asp-route-id="@item.Id.Value">Edytuj</a>
+                    </td>
+                    <td>
+                        <form method="post" asp-action="Delete" asp-route-id="@item.Id.Value">
+                            <button type="submit" class="btn btn-link text-danger float-right">Usuń</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
